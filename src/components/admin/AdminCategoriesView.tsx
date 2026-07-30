@@ -98,7 +98,14 @@ export const AdminCategoriesView: React.FC<AdminCategoriesViewProps> = ({
         {categories.map((cat) => (
           <div key={cat.id} className="bg-white rounded-2xl border border-emerald-100 shadow-xs p-5 flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <img src={cat.image} alt={cat.name} className="w-14 h-14 rounded-xl object-cover border border-emerald-100" />
+              <img
+                src={cat.image}
+                alt={cat.name}
+                onError={(e) => {
+                  e.currentTarget.src = 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=800&q=80';
+                }}
+                className="w-14 h-14 rounded-xl object-cover border border-emerald-100"
+              />
               <div>
                 <h3 className="font-poppins font-bold text-sm text-[#355E3B]">{cat.name}</h3>
                 <p className="text-xs text-gray-500 line-clamp-1">{cat.description}</p>

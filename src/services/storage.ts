@@ -71,7 +71,18 @@ export const StorageService = {
   },
 
   // Plants
-  getPlants: (): Plant[] => getItem(KEYS.PLANTS, INITIAL_PLANTS),
+  getPlants: (): Plant[] => {
+    const plants: Plant[] = getItem(KEYS.PLANTS, INITIAL_PLANTS);
+    return plants.map(p => {
+      if (p.image?.includes('photo-1599598425947-020645009081')) {
+        return { ...p, image: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=800&q=80' };
+      }
+      if (p.image?.includes('photo-1536511151690-366050b1d848')) {
+        return { ...p, image: 'https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&w=800&q=80' };
+      }
+      return p;
+    });
+  },
   savePlants: (plants: Plant[]) => setItem(KEYS.PLANTS, plants),
   addPlant: (plant: Omit<Plant, 'id' | 'createdAt'>) => {
     const plants = StorageService.getPlants();
@@ -96,7 +107,15 @@ export const StorageService = {
   },
 
   // Gallery
-  getGallery: (): GalleryImage[] => getItem(KEYS.GALLERY, INITIAL_GALLERY),
+  getGallery: (): GalleryImage[] => {
+    const gallery: GalleryImage[] = getItem(KEYS.GALLERY, INITIAL_GALLERY);
+    return gallery.map(g => {
+      if (g.url?.includes('photo-1599598425947-020645009081')) {
+        return { ...g, url: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=1200&q=80' };
+      }
+      return g;
+    });
+  },
   saveGallery: (gallery: GalleryImage[]) => setItem(KEYS.GALLERY, gallery),
   addGalleryItem: (item: Omit<GalleryImage, 'id' | 'createdAt'>) => {
     const gallery = StorageService.getGallery();
