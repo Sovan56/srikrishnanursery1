@@ -187,6 +187,9 @@ export const AdminPlantsView: React.FC<AdminPlantsViewProps> = ({
                     <img
                       src={plant.image}
                       alt={plant.name}
+                      onError={(e) => {
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=800&q=80';
+                      }}
                       className="w-12 h-12 rounded-xl object-cover border border-emerald-100 shadow-xs"
                     />
                   </td>
