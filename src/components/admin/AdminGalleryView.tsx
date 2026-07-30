@@ -67,7 +67,14 @@ export const AdminGalleryView: React.FC<AdminGalleryViewProps> = ({
         {gallery.map((img) => (
           <div key={img.id} className="bg-white rounded-2xl overflow-hidden border border-emerald-100 shadow-xs group relative">
             <div className="h-44 bg-emerald-50 relative">
-              <img src={img.url} alt={img.title} className="w-full h-full object-cover" />
+              <img
+                src={img.url}
+                alt={img.title}
+                onError={(e) => {
+                  e.currentTarget.src = 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80';
+                }}
+                className="w-full h-full object-cover"
+              />
               <button
                 onClick={() => handleDelete(img.id, img.title)}
                 className="absolute top-2 right-2 p-1.5 bg-rose-600 text-white rounded-lg opacity-80 group-hover:opacity-100 shadow-sm transition-opacity"

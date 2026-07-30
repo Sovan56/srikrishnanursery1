@@ -66,6 +66,9 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
             <img
               src={image.url}
               alt={image.title}
+              onError={(e) => {
+                e.currentTarget.src = 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1200&q=80';
+              }}
               className="max-h-[70vh] w-auto max-w-full object-contain"
             />
           </div>
