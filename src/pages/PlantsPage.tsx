@@ -200,6 +200,9 @@ export const PlantsPage: React.FC<PlantsPageProps> = ({
                   <img
                     src={plant.image}
                     alt={plant.name}
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=800&q=80';
+                    }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
@@ -292,6 +295,9 @@ export const PlantsPage: React.FC<PlantsPageProps> = ({
               <img
                 src={selectedPlantDetail.image}
                 alt={selectedPlantDetail.name}
+                onError={(e) => {
+                  e.currentTarget.src = 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=800&q=80';
+                }}
                 className="w-full h-full object-cover"
               />
             </div>

@@ -136,6 +136,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <img
                   src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1000&q=80"
                   alt="Sri Krishna Nursery & Farm Bengaluru"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1000&q=80';
+                  }}
                   className="w-full h-[400px] sm:h-[460px] object-cover hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent"></div>

@@ -49,6 +49,9 @@ export const AboutSection: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=900&q=80"
                 alt="Sri Krishna Nursery Farm Layout"
+                onError={(e) => {
+                  e.currentTarget.src = 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=900&q=80';
+                }}
                 className="w-full h-[380px] sm:h-[440px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>

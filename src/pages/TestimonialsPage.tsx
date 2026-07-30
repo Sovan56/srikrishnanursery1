@@ -125,6 +125,9 @@ export const TestimonialsPage: React.FC<TestimonialsPageProps> = ({
                 <img
                   src={t.photo}
                   alt={t.name}
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80';
+                  }}
                   className="w-11 h-11 rounded-full object-cover border-2 border-emerald-100"
                 />
                 <div>

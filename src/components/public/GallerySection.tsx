@@ -85,6 +85,9 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
                 <img
                   src={img.url}
                   alt={img.title}
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1200&q=80';
+                  }}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                 />
 
